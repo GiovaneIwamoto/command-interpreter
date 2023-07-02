@@ -1,10 +1,10 @@
 # COMMAND INTERPRETER
 
-### INTRODUCTION
+### **INTRODUCTION**
 
 This shell is a command-line interpreter developed in C specifically for the Linux environment. It offers a comprehensive set of features and functionalities to enhance the command-line experience for users.
 
-### FEATURES AND BUGS
+### **FEATURES AND BUGS**
 
 - FOREGROUND AND BACKGROUND
 
