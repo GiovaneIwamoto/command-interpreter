@@ -86,7 +86,7 @@ By using the "echo" command with the "$" symbol and an environment variable name
 
 The "set" command has been implemented to display all environment variables. When executed, the "set" command lists all the current environment variables, providing users with a comprehensive view of the existing variables and their respective values.
 
-#### **AUTHOR**
+### **AUTHOR**
 
 - Giovane Hashinokuti Iwamoto - Computer Science student at UFMS - Brazil - MS
 
