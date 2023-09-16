@@ -2,7 +2,7 @@
 
 ### **INTRODUCTION**
 
-This shell is a command-line interpreter developed in C specifically for the Linux environment. It offers a comprehensive set of features and functionalities to enhance the command-line experience for users.
+This shell is a command-line interpreter developed in C specifically for the Unix environment. It offers a comprehensive set of features and functionalities to enhance the command-line experience for users.
 
 ### **FEATURES AND BUGS**
 
