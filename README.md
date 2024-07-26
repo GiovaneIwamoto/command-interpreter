@@ -4,23 +4,33 @@
 
 This shell is a command-line interpreter developed in C specifically for the Unix environment. It offers a comprehensive set of features and functionalities to enhance the command-line experience for users.
 
-### **FEATURES AND BUGS**
+[![Icons](https://skillicons.dev/icons?i=linux,bash,ubuntu,debian,c&theme=dark)](https://skillicons.dev)
+
+### **FEATURES**
+
+> [!TIP]
+> The shell can be terminated correctly using either the "exit" command or by typing Ctrl+D. Both methods allow for a graceful termination of the shell, ensuring that any necessary cleanup or finalization steps are performed before exiting the program. This provides a convenient and flexible way for users to exit the shell based on their preference or workflow.
 
 - FOREGROUND AND BACKGROUND
 
 Commands can be executed both in the foreground and in the background. To execute in the background, simply append the '&' character at the end of the input. When a process is running in the foreground, the shell does not accept new inputs until the respective process completes or is interrupted by a signal. Conversely, when we have a process running in the background, it allows interactions with the command line while a process is running in the background.
 
-- REDIRECTING STDOUT OR STDERR
-
-The redirection of standard output (STDOUT) is implemented correctly, behaving as expected and redirecting output accordingly. However, when it comes to error output, there are some undesired behaviors related to issues such as not finding the output file.
+> [!NOTE]
+> When utilizing the shell, it is crucial to understand the distinction between foreground and background processes. Foreground processes monopolize the shell, preventing additional commands until completion or interruption.
 
 - REDIRECTING STDIN
 
 Redirecting from standard input (STDIN) to an input file is a functionality that has been added to the command interpreter, and it works correctly using a similar structural logic as the implementations of standard output and error redirection.
 
+> [!CAUTION]
+> The redirection of standard output (STDOUT) is implemented correctly, behaving as expected and redirecting output accordingly. However, when it comes to error output, there are some undesired behaviors related to issues such as not finding the output file.
+
 - MYPATH
 
 The programs to be executed are searched in the directories listed in the MYPATH environment variable. The initial content of the variable is correctly imported from the PATH environment variable. This custom environment variable contains a list of directories separated by colons (":") where the operating system looks for commands to be executed. The responsible function searches for the commands by traversing the directories until the "found" flag is updated. If a command is not listed in MYPATH, an error message is displayed.
+
+> [!WARNING]
+> Proper initialization and maintenance of MYPATH, inherited from the PATH variable, are essential. Incorrect configurations can lead to command not found errors, disrupting workflow. Regular verification and updating of MYPATH ensure reliable command execution.
 
 - EXPORT
 
@@ -34,15 +44,14 @@ An improvement has been made to the visual aspect of the shell. Similar to other
 
 - HISTORY
 
-The "history" command is functioning correctly, displaying the last 50 commands entered by the user. Each time a command is entered, the ".history" file is opened and the input is recorded. However, there is currently an issue with the implementation related to directory changes, which affects the history and command counter. This error causes commands executed in other directories to not be listed in the history. Additionally, the command counter increments incorrectly, resulting in inconsistencies in the count and display of commands in the listing. This issue should be addressed to ensure accurate tracking and display of command history.
+The "history" command is functioning correctly, displaying the last 50 commands entered by the user. Each time a command is entered, the ".history" file is opened and the input is recorded.
+
+> [!CAUTION]
+> There is currently an issue with the implementation related to directory changes, which affects the history and command counter. This error causes commands executed in other directories to not be listed in the history. Additionally, the command counter increments incorrectly, resulting in inconsistencies in the count and display of commands in the listing. This issue should be addressed to ensure accurate tracking and display of command history.
 
 - MYPS1
 
 The command interpreter always starts with the prompt set as "tecii$". However, this can be redefined using the environment variable MYPS1. By executing the command "export MYPS1=newprompt", the prompt changes to "newprompt$:/dir> ". This new prompt will remain in effect until there is another modification to the MYPS1 variable.
-
-- EXIT
-
-The shell can be terminated correctly using either the "exit" command or by typing Ctrl+D. Both methods allow for a graceful termination of the shell, ensuring that any necessary cleanup or finalization steps are performed before exiting the program. This provides a convenient and flexible way for users to exit the shell based on their preference or workflow.
 
 - SIGINT
 
@@ -64,9 +73,8 @@ By closely monitoring the Jobs list and utilizing the "ps -ef" command, users ca
 
 The "jobs" command lists the processes that have been stopped by the SIGTSTP signal with the status "STOPPED" and the processes running in the background with the status "RUNNING". The listing is displayed in the format `[(jobs_counter)] (status) (input) >> PID: (PID)`.
 
-If a background process is terminated during the execution of the shell, the user is notified about the termination and the corresponding signal/status. The status in the Jobs list is automatically changed to "DONE" when a process finishes. Similarly, if a process is terminated using the kill command with the termination signal, the status is also appropriately updated in the Jobs list.
-
-This provides users with visibility and information about the status of background and stopped processes, allowing them to manage and monitor their execution effectively within the shell.
+> [!IMPORTANT]
+> If a background process is terminated during the execution of the shell, the user is notified about the termination and the corresponding signal/status. The status in the Jobs list is automatically changed to "DONE" when a process finishes. Similarly, if a process is terminated using the kill command with the termination signal, the status is also appropriately updated in the Jobs list. This provides users with visibility and information about the status of background and stopped processes, allowing them to manage and monitor their execution effectively within the shell.
 
 - SIGCHLD
 
